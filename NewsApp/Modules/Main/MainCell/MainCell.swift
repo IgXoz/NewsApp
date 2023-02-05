@@ -18,13 +18,13 @@ class MainCell: UITableViewCell {
         return view
     }()
     
-    private lazy var newsHeaderLabel: UILabel = {
+    private lazy var nameLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.Fonts.mediumBold
         label.translatesAutoresizingMaskIntoConstraints = false
         label.adjustsFontForContentSizeCategory = true
         label.textAlignment = .left
-        label.text = "header"
+        label.text = "Name"
         return label
     }()
     
@@ -109,25 +109,25 @@ class MainCell: UITableViewCell {
             imageNews.widthAnchor.constraint(equalToConstant: Constants.ImageConstants.imageWidth),
             imageNews.heightAnchor.constraint(equalToConstant: Constants.ImageConstants.imageHeight)])
         
-        containerView.addSubview(newsHeaderLabel)
+        containerView.addSubview(nameLabel)
         NSLayoutConstraint.activate([
-            newsHeaderLabel.leadingAnchor.constraint(equalTo: imageNews.trailingAnchor, constant: Constants.NewsHeaderConstants.newsHeaderLeading),
-            newsHeaderLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: Constants.NewsHeaderConstants.newsHeaderTrailing),
-            newsHeaderLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: Constants.NewsHeaderConstants.newsHeaderTop),
-            newsHeaderLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: Constants.NewsHeaderConstants.newsHeaderBottom)])
+            nameLabel.leadingAnchor.constraint(equalTo: imageNews.trailingAnchor, constant: Constants.NewsHeaderConstants.newsHeaderLeading),
+            nameLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: Constants.NewsHeaderConstants.newsHeaderTrailing),
+            nameLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: Constants.NewsHeaderConstants.newsHeaderTop),
+            nameLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: Constants.NewsHeaderConstants.newsHeaderBottom)])
         
         containerView.addSubview(qtyOfWatchedLabel)
         NSLayoutConstraint.activate([
             qtyOfWatchedLabel.leadingAnchor.constraint(equalTo: imageNews.trailingAnchor, constant: Constants.QtyOfWatchedConstants.qtyOfWatchedLeading),
             qtyOfWatchedLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: Constants.QtyOfWatchedConstants.qtyOfWatchedTrailing),
-            qtyOfWatchedLabel.topAnchor.constraint(equalTo: newsHeaderLabel.bottomAnchor, constant: Constants.QtyOfWatchedConstants.qtyOfWatchedTop),
+            qtyOfWatchedLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: Constants.QtyOfWatchedConstants.qtyOfWatchedTop),
             qtyOfWatchedLabel.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: Constants.QtyOfWatchedConstants.qtyOfWatchedBottom)])
     }
     
     
     private func updateView() {
         guard let viewModel = viewModel as? MainCellViewModel else { return }
-        newsHeaderLabel.text = "123"
+        nameLabel.text = viewModel.name
         qtyOfWatchedLabel.text = "Watched \(qtyOfWatched) times"
         
         //        nameLabel.text = viewModel.employeeName

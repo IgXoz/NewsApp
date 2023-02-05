@@ -3,7 +3,7 @@ import Foundation
 // MARK: EmployeeCellViewModelProtocol
 protocol MainCellViewModelProtocol {
     var cellIdentifier: String { get }
-    var newsHeader: String { get }
+    var name: String { get }
 //    var newsPhotoURL: String { get }
     
 //    var author: String? { get }
@@ -14,7 +14,8 @@ protocol MainCellViewModelProtocol {
 //    var publishedAt: Date { get }
 //    var content: String { get }
 
-    init(article: Article)    
+//    init(article: Article)
+    init(character: Character)
 }
 
 // MARK: EmployeeSectionViewModelProtocol

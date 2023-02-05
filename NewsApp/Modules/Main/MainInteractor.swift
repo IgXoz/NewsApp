@@ -50,8 +50,8 @@ extension MainInteractor {
     private func fetchNetworkData() {
         apiController.loadDataFromServer { data in // <- returns Data from server.
 
-            self.decoder.decodeData(data) { article in // <- returns [Article]
-                let dataStore = MainDataStore(articles: article)
+            self.decoder.decodeData(data) { characters in
+                let dataStore = MainDataStore(characters: characters)
                 self.presenter.articleDidReceive(with: dataStore) // <- send [Article] to presenter
             }
 

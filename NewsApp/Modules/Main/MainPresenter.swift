@@ -2,7 +2,7 @@ import Foundation
 
 // Structure for loaded data. Структура для загружаемых данных.
 struct MainDataStore {
-    let articles: [Article]
+    let characters: [Character]
 }
 
 class MainPresenter: MainPresentationLogicProtocol {
@@ -22,10 +22,10 @@ class MainPresenter: MainPresentationLogicProtocol {
                 self.dataStore = dataStore
                 let section = MainSectionViewModel()
         
-        let articles = dataStore.articles
-        articles.forEach {
-            article in
-            let cellViewModel = MainCellViewModel(article: article)
+        let characters = dataStore.characters
+        characters.forEach {
+            character in
+            let cellViewModel = MainCellViewModel(character: character)
             section.rows.append(cellViewModel)
         }
         

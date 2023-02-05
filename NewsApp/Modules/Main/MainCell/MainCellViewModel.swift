@@ -12,17 +12,17 @@ class MainCellViewModel: MainCellViewModelProtocol {
         "MainCell"
     }
 
-    var newsHeader: String {
-        article.title ?? "optional"
+    var name: String {
+        character.name
     }
 //    var newsPhotoURL: String {
 //        article.urlToImage ?? "123"
 //    }
     
-    private let article: Article
+    private let character: Character
     
-    required init(article: Article) {
-        self.article = article
+    required init(character: Character) {
+        self.character = character
     }
     
 }

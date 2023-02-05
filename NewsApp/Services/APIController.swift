@@ -30,7 +30,7 @@ class APIController: APIControllerProtocol {
     
     //Loads Data from server and returns Data.
     func loadDataFromServer(completion: @escaping (_ data: Data)->()) {
-        guard let url = URL(string: NetworkConstants.apiAdress) else { return }
+        guard let url = URL(string: NetworkConstants.rikAndMortyAdress) else { return }
         URLSession.shared.dataTask(with: url) { data, responce, error in
             guard let data = data else {
                 print(error?.localizedDescription ??

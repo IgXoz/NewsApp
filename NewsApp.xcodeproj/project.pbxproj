@@ -26,6 +26,7 @@
 		781394D8298EDCD00014AB96 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781394D7298EDCD00014AB96 /* Fonts.swift */; };
 		781394DB298FCD340014AB96 /* MainCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781394DA298FCD340014AB96 /* MainCellViewModel.swift */; };
 		781394DD298FCD3C0014AB96 /* MainCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781394DC298FCD3C0014AB96 /* MainCellProtocols.swift */; };
+		781394DF29900F570014AB96 /* RikAndMortyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781394DE29900F570014AB96 /* RikAndMortyModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		781394D7298EDCD00014AB96 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		781394DA298FCD340014AB96 /* MainCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellViewModel.swift; sourceTree = "<group>"; };
 		781394DC298FCD3C0014AB96 /* MainCellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellProtocols.swift; sourceTree = "<group>"; };
+		781394DE29900F570014AB96 /* RikAndMortyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RikAndMortyModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				781394D5298EC73A0014AB96 /* Model.swift */,
+				781394DE29900F570014AB96 /* RikAndMortyModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -242,6 +245,7 @@
 			files = (
 				781394D4298EC54E0014AB96 /* NetworkConstants.swift in Sources */,
 				781394D8298EDCD00014AB96 /* Fonts.swift in Sources */,
+				781394DF29900F570014AB96 /* RikAndMortyModel.swift in Sources */,
 				781394CA298EA2AC0014AB96 /* MainProtocols.swift in Sources */,
 				781394DB298FCD340014AB96 /* MainCellViewModel.swift in Sources */,
 				781394D0298EC4A00014AB96 /* Parser.swift in Sources */,
