@@ -5,21 +5,23 @@ class MainViewController: UIViewController, MainDisplayLogicProtocol {
     // MARK: Properties:
     var presenter: MainPresentationLogicProtocol!
     private let configurator: MainConfiguratorProtocol = MainConfigurator()
+    private var sectionViewModel: MainSectionViewModelProtocol = MainSectionViewModel()
+    
     
     private let tableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
         return tableView
     }()
-//    private var sectionViewModel: MainSectionViewModelProtocol = MainSectionViewModel()
+   
     
     // MARK: Methods
-//    func reloadData(for section: MainSectionViewModel) {
-//        sectionViewModel = section
-//        DispatchQueue.main.async {
-//            self.tableView.reloadData()
-//        }
-//    }
+    func reloadData(for section: MainSectionViewModel) {
+        sectionViewModel = section
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
     
     func presentAlert() {
         let alert = UIAlertController(title: "Error", message: "Check Internet Connection", preferredStyle: .alert)
@@ -29,7 +31,8 @@ class MainViewController: UIViewController, MainDisplayLogicProtocol {
     
     private func setUpUI() {
         
-        self.tableView.register(MainCell.self, forCellReuseIdentifier: MainCell.identifier)
+//        self.tableView.register(MainCell.self, forCellReuseIdentifier: MainCell.identifier)
+        self.tableView.register(MainCell.self, forCellReuseIdentifier: "MainCell")
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -52,8 +55,8 @@ class MainViewController: UIViewController, MainDisplayLogicProtocol {
         super.viewDidLoad()
         setUpUI()
 //        tableView.register(EmployeeCell.self, forCellReuseIdentifier: "EmployeeCell")
-//        configurator.configure(with: self)
-//        presenter.displayData()
+        configurator.configure(with: self)
+        presenter.displayData()
     }
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
@@ -65,16 +68,24 @@ class MainViewController: UIViewController, MainDisplayLogicProtocol {
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//       sectionViewModel.rows.count
-        10
+       sectionViewModel.rows.count
+        
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cellViewModel = sectionViewModel.rows[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.identifier, for: indexPath)
-//        cell.viewModel = cellViewModel
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+////        let cellViewModel = sectionViewModel.rows[indexPath.row]
+//        let cell = tableView.dequeueReusableCell(withIdentifier: MainCell.identifier, for: indexPath) as! MainCell
+////        cell.viewModel = cellViewModel
+//        return cell
+//    }
+    
+     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cellViewModel = sectionViewModel.rows[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellViewModel.cellIdentifier, for: indexPath) as! MainCell
+        cell.viewModel = cellViewModel
         return cell
     }
+    
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)

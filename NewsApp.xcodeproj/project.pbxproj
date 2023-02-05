@@ -24,6 +24,8 @@
 		781394D4298EC54E0014AB96 /* NetworkConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781394D3298EC54E0014AB96 /* NetworkConstants.swift */; };
 		781394D6298EC73A0014AB96 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781394D5298EC73A0014AB96 /* Model.swift */; };
 		781394D8298EDCD00014AB96 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781394D7298EDCD00014AB96 /* Fonts.swift */; };
+		781394DB298FCD340014AB96 /* MainCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781394DA298FCD340014AB96 /* MainCellViewModel.swift */; };
+		781394DD298FCD3C0014AB96 /* MainCellProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 781394DC298FCD3C0014AB96 /* MainCellProtocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +48,8 @@
 		781394D3298EC54E0014AB96 /* NetworkConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConstants.swift; sourceTree = "<group>"; };
 		781394D5298EC73A0014AB96 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		781394D7298EDCD00014AB96 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
+		781394DA298FCD340014AB96 /* MainCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellViewModel.swift; sourceTree = "<group>"; };
+		781394DC298FCD3C0014AB96 /* MainCellProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCellProtocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,8 +108,8 @@
 		781394B0298EA0190014AB96 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				781394D9298FCD1C0014AB96 /* MainCell */,
 				7813949F298E90A10014AB96 /* MainViewController.swift */,
-				781394CB298EA2C40014AB96 /* MainCell.swift */,
 				781394C1298EA2780014AB96 /* MainPresenter.swift */,
 				781394C3298EA2840014AB96 /* MainInteractor.swift */,
 				781394C5298EA2900014AB96 /* MainConfigurator.swift */,
@@ -154,6 +158,16 @@
 				781394D7298EDCD00014AB96 /* Fonts.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		781394D9298FCD1C0014AB96 /* MainCell */ = {
+			isa = PBXGroup;
+			children = (
+				781394CB298EA2C40014AB96 /* MainCell.swift */,
+				781394DA298FCD340014AB96 /* MainCellViewModel.swift */,
+				781394DC298FCD3C0014AB96 /* MainCellProtocols.swift */,
+			);
+			path = MainCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,12 +243,14 @@
 				781394D4298EC54E0014AB96 /* NetworkConstants.swift in Sources */,
 				781394D8298EDCD00014AB96 /* Fonts.swift in Sources */,
 				781394CA298EA2AC0014AB96 /* MainProtocols.swift in Sources */,
+				781394DB298FCD340014AB96 /* MainCellViewModel.swift in Sources */,
 				781394D0298EC4A00014AB96 /* Parser.swift in Sources */,
 				781394A0298E90A10014AB96 /* MainViewController.swift in Sources */,
 				781394C8298EA2A00014AB96 /* MainRouter.swift in Sources */,
 				7813949C298E90A10014AB96 /* AppDelegate.swift in Sources */,
 				781394CE298EC4940014AB96 /* APIController.swift in Sources */,
 				781394D6298EC73A0014AB96 /* Model.swift in Sources */,
+				781394DD298FCD3C0014AB96 /* MainCellProtocols.swift in Sources */,
 				7813949E298E90A10014AB96 /* SceneDelegate.swift in Sources */,
 				781394C4298EA2840014AB96 /* MainInteractor.swift in Sources */,
 				781394C2298EA2780014AB96 /* MainPresenter.swift in Sources */,
