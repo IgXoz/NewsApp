@@ -13,15 +13,15 @@ class MainInteractor: MainBusinessLogicProtocol {
 //        if checkCache() {
 //            fetchCachedData()
 //        } else {
-//            fetchNetworkData()
+            fetchNetworkData()
 //            startTimer()
 //        }
     }
     
     // MARK: Properties:
     weak var presenter: MainPresentationLogicProtocol!
-//    let apiController: APIControllerProtocol = APIController()
-//    let decoder: DecoderProtocol = Decoder()
+    let apiController: APIControllerProtocol = APIController()
+    let decoder: DecoderProtocol = Decoder()
 //    private let urlStorage: URLStorageProtocol = URLStorage()
 //    let fileManager: CacheManagerProtocol = CacheManager()
 
@@ -48,18 +48,18 @@ extension MainInteractor {
     //loads Data, sends Data to presenter and ViewModel, saves Data in cache,
     //returns fileUrl for cached Data.
     private func fetchNetworkData() {
-//        apiController.loadDataFromServer { data in // <- returns Data from server.
-//
-//            self.decoder.decodeData(data) { employees in // <- returns [Employee]
-//                let dataStore = EmployeeDataStore(employees: employees)
-//                self.presenter.employeeDidReceive(with: dataStore)// <- send [Employees] to presenter
-//            }
-//
+        apiController.loadDataFromServer { data in // <- returns Data from server.
+
+            self.decoder.decodeData(data) { article in // <- returns [Article]
+                let dataStore = MainDataStore(articles: article)
+                self.presenter.articleDidReceive(with: dataStore) // <- send [Article] to presenter
+            }
+
 //            let url = self.fileManager.createFile() // <-Creates file and returns fileURL
 //            self.urlStorage.saveURLIntoCache(url, self.urlStorage.key)// <- saves fileURL in UserDefaults
 //
 //            self.fileManager.saveData(data, url) // <- saves Data into file
-//        }
+        }
     }
 }
 

@@ -1,23 +1,23 @@
 import Foundation
 
 protocol MainDisplayLogicProtocol: AnyObject {
-//    func reloadData(for section: EmployeeSectionViewModel)
+    func reloadData(for section: MainSectionViewModel)
     func presentAlert()
 }
 
 protocol MainPresentationLogicProtocol: AnyObject {
-//    var router: EmployeeRouterProtocol! { set get } // not required for one-screen app.
-//    func employeeDidReceive(with dataStore: EmployeeDataStore)
-//    func displayData()
+    var router: MainRouterProtocol! { set get } // not required for one-screen app.
+    func articleDidReceive(with dataStore: MainDataStore)
+    func displayData()
     func showAlert()
 }
 
 protocol MainBusinessLogicProtocol: AnyObject {
-//    func loadData()
+    func loadData()
 }
 
 protocol MainConfiguratorProtocol: AnyObject {
-//    func configure(with viewController: EmployeeViewController)
+    func configure(with viewController: MainViewController)
 }
 
 protocol MainRouterProtocol: AnyObject {

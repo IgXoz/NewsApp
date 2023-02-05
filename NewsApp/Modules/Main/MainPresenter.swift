@@ -2,7 +2,7 @@ import Foundation
 
 // Structure for loaded data. Структура для загружаемых данных.
 struct MainDataStore {
-//    let employees: [Employee]
+    let articles: [Article]
 }
 
 class MainPresenter: MainPresentationLogicProtocol {
@@ -18,20 +18,27 @@ class MainPresenter: MainPresentationLogicProtocol {
     }
     
     // MARK: Methods:
-    func MainDidReceive(with dataStore: MainDataStore) {
-        //        self.dataStore = dataStore
-        //        let section = MainSectionViewModel()
-        //
-        //        let sortedEmployees = dataStore.employees.sorted(by: {$0.name < $1.name})
-        //        sortedEmployees.forEach { employee in
-        //            let cellViewModel = EmployeeCellViewModel(employee: employee)
-        //            section.rows.append(cellViewModel)
-        //        }
-        //        view.reloadData(for: section)
+    func articleDidReceive(with dataStore: MainDataStore) {
+                self.dataStore = dataStore
+                let section = MainSectionViewModel()
+        
+        let articles = dataStore.articles
+        articles.forEach {
+            article in
+            let cellViewModel = MainCellViewModel(article: article)
+            section.rows.append(cellViewModel)
+        }
+        
+//                let sortedEmployees = dataStore.employees.sorted(by: {$0.name < $1.name})
+//                sortedEmployees.forEach { employee in
+//                    let cellViewModel = EmployeeCellViewModel(employee: employee)
+//                    section.rows.append(cellViewModel)
+//                }
+                view.reloadData(for: section)
     }
     
     func displayData() {
-        //        interactor.loadData()
+                interactor.loadData()
     }
     
     func showAlert() {

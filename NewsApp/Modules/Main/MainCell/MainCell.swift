@@ -2,11 +2,11 @@ import UIKit
 
 class MainCell: UITableViewCell {
     
-    //    var viewModel: EmployeeCellViewModelProtocol? {
-    //        didSet {
-    //            updateView()
-    //        }
-    //    }
+    var viewModel: MainCellViewModelProtocol? {
+        didSet {
+            updateView()
+        }
+    }
     static let identifier = "MainCell"
     private var qtyOfWatched = 0
     
@@ -69,17 +69,28 @@ class MainCell: UITableViewCell {
     // MARK: Initializers
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        //        addViews()
         setupView()
+        
         //            setupConstraints()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        //        addViews()
         setupView()
         //        setupConstraints()
     }
     
     // MARK: Private Methods
+    
+    //    private func addViews() {
+    //        contentView.addSubview(containerView)
+    //        containerView.addSubview(imageNews)
+    //        containerView.addSubview(newsHeaderLabel)
+    //        containerView.addSubview(qtyOfWatchedLabel)
+    //    }
+    
     private func setupView() {
         
         contentView.addSubview(containerView)
@@ -115,7 +126,7 @@ class MainCell: UITableViewCell {
     
     
     private func updateView() {
-        //        guard let viewModel = viewModel as? EmployeeCellViewModel else { return }
+        guard let viewModel = viewModel as? MainCellViewModel else { return }
         newsHeaderLabel.text = "123"
         qtyOfWatchedLabel.text = "Watched \(qtyOfWatched) times"
         
@@ -124,43 +135,43 @@ class MainCell: UITableViewCell {
         //        skillLabel.text = "Skills: \(viewModel.employeeSkill.joined(separator: ", "))"
     }
     
-    func configureCell() {
-        newsHeaderLabel.text = ""
-        qtyOfWatchedLabel.text = "Watched \(qtyOfWatched) times"
-    }
+//    func configureCell() {
+//        newsHeaderLabel.text = ""
+//        qtyOfWatchedLabel.text = "Watched \(qtyOfWatched) times"
+//    }
     
 }
+
+// MARK: Constants
+enum Constants {
     
-    // MARK: Constants
-    enum Constants {
-        
-        fileprivate static let labelsSpacing: CGFloat = 5
-        fileprivate static let cellsSpacing: CGFloat = 5
-        fileprivate static let viewBorderWidth: CGFloat = 0.5
-        
-        enum ImageConstants {
-            fileprivate static let imageHeight: CGFloat = 120
-            fileprivate static let imageWidth: CGFloat = 120
-            fileprivate static let imageLeading: CGFloat = 0
-            fileprivate static let imageTrailing: CGFloat = 0
-            fileprivate static let imageTop: CGFloat = 0
-            fileprivate static let imageBottom: CGFloat = 0
-        }
-        
-        enum NewsHeaderConstants {
-            fileprivate static let newsHeaderLeading: CGFloat = 0
-            fileprivate static let newsHeaderTrailing: CGFloat = 0
-            fileprivate static let newsHeaderTop: CGFloat = 0
-            fileprivate static let newsHeaderBottom: CGFloat = 0
-        }
-        
-        enum QtyOfWatchedConstants {
-            fileprivate static let qtyOfWatchedLeading: CGFloat = 0
-            fileprivate static let qtyOfWatchedTrailing: CGFloat = 0
-            fileprivate static let qtyOfWatchedTop: CGFloat = 0
-            fileprivate static let qtyOfWatchedBottom: CGFloat = 0
-        }
+    fileprivate static let labelsSpacing: CGFloat = 5
+    fileprivate static let cellsSpacing: CGFloat = 5
+    fileprivate static let viewBorderWidth: CGFloat = 0.5
+    
+    enum ImageConstants {
+        fileprivate static let imageHeight: CGFloat = 120
+        fileprivate static let imageWidth: CGFloat = 120
+        fileprivate static let imageLeading: CGFloat = 0
+        fileprivate static let imageTrailing: CGFloat = 0
+        fileprivate static let imageTop: CGFloat = 0
+        fileprivate static let imageBottom: CGFloat = 0
     }
+    
+    enum NewsHeaderConstants {
+        fileprivate static let newsHeaderLeading: CGFloat = 0
+        fileprivate static let newsHeaderTrailing: CGFloat = 0
+        fileprivate static let newsHeaderTop: CGFloat = 0
+        fileprivate static let newsHeaderBottom: CGFloat = 0
+    }
+    
+    enum QtyOfWatchedConstants {
+        fileprivate static let qtyOfWatchedLeading: CGFloat = 0
+        fileprivate static let qtyOfWatchedTrailing: CGFloat = 0
+        fileprivate static let qtyOfWatchedTop: CGFloat = 0
+        fileprivate static let qtyOfWatchedBottom: CGFloat = 0
+    }
+}
 
 
 
